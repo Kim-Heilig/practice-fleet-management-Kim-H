@@ -117,3 +117,53 @@ tie.launder();
 socks.describe();
 tie.describe();
 jacket.describe();
+
+//////////////  PRACTICE WITH THE BEVERAGE EXERCISE /////////////////
+
+// Define a Beverage class with properties name, ounces, container, and isCold.
+// isCold should always be false at instantiation of an object.
+// container should be optional and default to "bottle".
+// Add a describe() method that prints a statement using the values stored in the object's other properties. The statement should read differently depending on whether the beverage is cold or not.
+// Add a refrigerate() method outside the constructor that changes the value of isCold and prints a notification.
+// Instantiate at least 3 different kinds of beverages with unique properties.
+// Use the describe() method to print descriptions of each beverage.
+// Use the refrigerate() method on one of the beverages, then call describe()  again.
+
+class Beverage {
+  constructor(name, ounces, container, isCold = false) {
+    this.name = name;
+    this.ounces = ounces;
+    this.container = container;
+    this.isCold = isCold;
+  }
+  describe() {
+    if (this.isCold) {
+      console.log(
+        `This ${this.ounces} ${this.container} of ${this.name} is cold.`
+      );
+    } else {
+      console.log(
+        `This ${this.ounces} ${this.container} of ${this.name} is not cold.`
+      );
+    }
+  }
+  refrigerate() {
+    this.isCold = true;
+    console.log(`The ${this.name} is cold.`);
+  }
+}
+
+let cola = new Beverage("Pepsi", 12, "can", (this.isCold = true));
+let coffee = new Beverage("coffee", 8, "mug");
+let lemonade = new Beverage("lemonade", 8, "bottle", (this.isCold = true));
+
+console.log(cola);
+console.log(coffee);
+console.log(lemonade);
+
+cola.describe();
+coffee.describe();
+lemonade.describe();
+
+coffee.refrigerate();
+coffee.describe();
